@@ -20,15 +20,15 @@ pipeline{
                 sh "npm test"
             }
         }
-    }
 
-    stage('Release') {
-        steps {
-            sh '''
-            oc project rzvldi-greetings
-            oc start-build greeting-console --follow --wait
-            '''
+        stage('Release') {
+            steps {
+                sh '''
+                oc project rzvldi-greetings
+                oc start-build greeting-console --follow --wait
+                '''
+            }
         }
-    }
 
+    }
 }
